@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/evan/Documents/programming/CPP/cianGame/build/cmake_install.cmake"
+		"/home/evan/Documents/programming/cpp/TextGame/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

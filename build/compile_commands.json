@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/evan/Documents/programming/cpp/TextGame/build",
+  "command": "/usr/bin/c++ -I/home/evan/Documents/programming/cpp/TextGame/include -g -o CMakeFiles/main.dir/src/main.cpp.o -c /home/evan/Documents/programming/cpp/TextGame/src/main.cpp",
+  "file": "/home/evan/Documents/programming/cpp/TextGame/src/main.cpp",
+  "output": "/home/evan/Documents/programming/cpp/TextGame/build/CMakeFiles/main.dir/src/main.cpp.o"
+}
+]

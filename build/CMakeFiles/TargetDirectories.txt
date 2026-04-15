@@ -1,3 +1,3 @@
-/home/evan/Documents/programming/CPP/cianGame/build/CMakeFiles/main.dir
-/home/evan/Documents/programming/CPP/cianGame/build/CMakeFiles/edit_cache.dir
-/home/evan/Documents/programming/CPP/cianGame/build/CMakeFiles/rebuild_cache.dir
+/home/evan/Documents/programming/cpp/TextGame/build/CMakeFiles/main.dir
+/home/evan/Documents/programming/cpp/TextGame/build/CMakeFiles/edit_cache.dir
+/home/evan/Documents/programming/cpp/TextGame/build/CMakeFiles/rebuild_cache.dir
