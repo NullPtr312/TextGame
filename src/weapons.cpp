@@ -1,15 +1,4 @@
-#include "classes.hpp"
-#include "game.hpp"
 
-int main() {
-
-	//GAME SETUP ---------
-	//Status Effects
-	srand(time(NULL));
-
-	StatusEffect onFire{ "burned", [](Entity& e) { e.health -= 1; } };
-	StatusEffect cursed{ "is cursed", [](Entity& e) { e.health -= 3; } };
-	StatusEffect regen{ "healing", [](Entity& e) { e.health += 1;} };
 
 	//Weapons
 	Weapon debug{ "debug" };
@@ -48,36 +37,3 @@ int main() {
 	{"Stabbed", "Dealt 2 damage",[&onFire](Entity& from, Entity& to) { to.health -= 2; to.statusEffect = &onFire; to.statusTimer = 3; }},
 	{"Stabbed", "Dealt 3 damage",[&onFire](Entity& from, Entity& to) { to.health -= 3; to.statusEffect = &onFire; to.statusTimer = 2; }},
 	};
-
-
-	//Entities
-	Entity player{ "Player", 100, &rustedSword };
-	Entity lucio{ "Lucio", 5, &stick };
-	Entity goblin{ "Goblin", 8, &debug };
-	Entity ogre{ "Ogre", 14, &debug };
-
-
-	//Encounters
-	Encounter goblinEncounter{ &goblin, {&stick, &rustedSword} };
-	Encounter ogreEncounter{ &ogre, {&rustedSword, &massiveSword, &dagger} };
-
-	std::vector<Encounter> encounterPool{ goblinEncounter, ogreEncounter };
-
-	Game game;
-	game.encounterPool = std::move(encounterPool);
-	game.activeEnemy = &lucio;
-	game.player = &player;
-
-
-	std::cout << "Welcome to your test of strength.\n";
-	std::cout << "You enter the first level to face your opponent.\n\n";
-	std::cout << "Lucio stands opposed to you, wielding a fierce weapon.\n";
-	std::cout << "You have " << game.player->health << " HP and one life. Good luck. (Enter to continue)\n";
-	std::cin.get();
-
-	while(game.isGameActive) {
-	    game.doGameLoop();
-	}
-
-	return 0;
-}
