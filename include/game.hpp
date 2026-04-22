@@ -80,19 +80,19 @@ public:
 		switch (c) {
 		    case '1':
 			std::cout << "You take the left path.\n";
-			activeEnemy = (encounterChoices[0].generateEnemy());
+			activeEnemy = new Entity(*encounterChoices[0].generateEnemy());
 			accepted = true;
 			break;
 
 		    case '2':
 			std::cout << "You take the middle path.\n";
-			activeEnemy = (encounterChoices[1].generateEnemy());
+			activeEnemy = new Entity(*encounterChoices[1].generateEnemy());
 			accepted = true;
 			break;
 
 		    case '3':
 			std::cout << "You take the right path.\n";
-			activeEnemy = (encounterChoices[2].generateEnemy());
+			activeEnemy = new Entity(*encounterChoices[2].generateEnemy());
 			accepted = true;
 			break;
 
