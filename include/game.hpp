@@ -8,7 +8,8 @@ public:
 
     Entity* activeEnemy;
     Entity* player;
-	int playerScore = 0;
+    int playerScore = 0;
+    Weapon* altWeapon = nullptr;
 
     void displayInitMessage() {
 	std::cout << "Welcome to your test of strength.\n";
@@ -22,7 +23,35 @@ public:
 
     void doGameLoop() {
 
+	if(altWeapon != nullptr)
+	    std::cout << "Active Weapon: " << player->heldWeapon->name << ", Alt Weapon: " << altWeapon->name << std::endl;
+	else
+	    std::cout << "Active Weapon: " << player->heldWeapon->name << std::endl;
+	
+	std::cout << "Attack with active (a) or switch (s)" << std::endl;
+
+	char input;
+	bool accept = false;
+	while(!accept) {
+	    std::cin >> input;
+	    switch(input) {
+		case 'a':
+		    accept = true;
+		    break;
+		case 's':
+		    if(altWeapon == nullptr)
+			break;
+		    Weapon* temp = player->heldWeapon;
+		    player->heldWeapon = altWeapon;
+		    altWeapon = temp;
+		    accept = true;
+		    break;
+	    }
+	}
+	
 	player->takeAction(*activeEnemy);
+
+
 	if (!(activeEnemy->health <= 0))
 	    activeEnemy->takeAction(*player);
 	std::cout << "Player HP: " << player->health << " | Enemy HP: " << activeEnemy->health << "\n";
@@ -46,14 +75,32 @@ public:
 	    while (!accepted) {
 		std::cin >> c;
 		switch (c) {
-		    case 'y':
-			std::cout << "You take the " << activeEnemy->heldWeapon->name << ".\n";
-			player->heldWeapon = activeEnemy->heldWeapon;
+		    case 'y': {
+
 			accepted = true;
-			break;
-		    case 'n':
+			std::cout << "Replace your active (a) or alternate weapon (s)?\n";
+			bool why = false;
+			while (!why) {
+			    char cc;
+			    std::cin >> cc;
+			    switch (cc) {
+				case 'a':
+				    std::cout << "You take the " << activeEnemy->heldWeapon->name << ".\n";
+				    player->heldWeapon = activeEnemy->heldWeapon;
+				    why = true;
+				    continue;
+				case 's':
+				    std::cout << "You take the " << activeEnemy->heldWeapon->name << ".\n";
+				    altWeapon = activeEnemy->heldWeapon;
+				    why = true;
+				    continue;
+			    }
+			}
+		    }
+
+		    case 'n': {
 			accepted = true;
-			break;
+		    }
 
 		    default:
 			std::cout << "Invalid character\n";
