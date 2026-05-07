@@ -1,0 +1,3 @@
+C:/Users/CFK/Desktop/New folder/TextGame/build/build/CMakeFiles/main.dir
+C:/Users/CFK/Desktop/New folder/TextGame/build/build/CMakeFiles/edit_cache.dir
+C:/Users/CFK/Desktop/New folder/TextGame/build/build/CMakeFiles/rebuild_cache.dir

@@ -38,7 +38,7 @@ struct StatusEffect {
 class Entity {
 public:
 
-	Entity(std::string name, int health, Weapon* weapon) : name(name), health(health), heldWeapon(weapon) {};
+	Entity(std::string name, int health, Weapon* weapon, int score) : name(name), health(health), heldWeapon(weapon), score(score) {};
 
 	Entity(const Entity& other) : heldWeapon(other.heldWeapon) {
 		name = other.name;
@@ -46,6 +46,7 @@ public:
 	};
 
 	std::string name;
+	int score;
 	int health;
 	Weapon* heldWeapon;
 

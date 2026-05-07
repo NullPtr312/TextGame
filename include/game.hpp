@@ -8,6 +8,7 @@ public:
 
     Entity* activeEnemy;
     Entity* player;
+	int playerScore = 0;
 
     void displayInitMessage() {
 	std::cout << "Welcome to your test of strength.\n";
@@ -28,7 +29,7 @@ public:
 
 	if (player->health <= 0) {
 	    std::cout << "\n\nYou have failed in your quest to defeat Lucio.\n";
-	    std::cout << "You defeated " << " enemies in your short-lived lifespan.\n";
+	    std::cout << "Your final score was " << playerScore << ".\n";
 	    std::cout << "Let it be known to all that you are not worthy of text based games.\n";
 	    std::cin.get();
 	    isGameActive = false;
@@ -36,6 +37,7 @@ public:
 	}
 
 	if (activeEnemy->health <= 0) {
+		playerScore += activeEnemy->score;
 	    std::cout << "The enemy has died.\n";
 	    std::cout << "Would you like to steal their weapon? (" << activeEnemy->heldWeapon->name << ")\n(y/n)";
 
